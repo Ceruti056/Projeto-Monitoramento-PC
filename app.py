@@ -15,8 +15,7 @@ page = st.sidebar.radio("Selecione o Módulo:", [
     "Dashboard Histórico", 
     "Monitor em Tempo Real", 
     "Gestão & Otimizador", 
-    "Modo Gamer",
-    "Modo HUD"
+    "Modo Gamer"
 ])
 
 st.sidebar.markdown("---")
@@ -181,25 +180,4 @@ elif page == "Modo Gamer":
     if st.button("Re-Verificar"):
         st.rerun()
 
-elif page == "Modo HUD":
-    # Layout ultra minimalista para overlay
-    st.markdown(
-        """
-        <style>
-        .hud-text { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: bold; line-height: 1.2; text-shadow: 2px 2px 5px black;}
-        .hud-cpu { color: #ff4b4b; }
-        .hud-ram { color: #00fa9a; }
-        </style>
-        """, unsafe_allow_html=True
-    )
-    
-    st.markdown("<div style='text-align: center; margin-top: 100px;'>", unsafe_allow_html=True)
-    st.markdown(f"<div class='hud-text hud-cpu'>CPU: {cpu_live}%</div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='hud-text hud-ram'>RAM: {ram_live.percent}%</div>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-    
-    st.write("")
-    st.caption("HUD Overlay - Atualização a cada 3 segundos. Ideal para manter minimizado num segundo monitor.")
-    
-    time.sleep(3)
-    st.rerun()
+

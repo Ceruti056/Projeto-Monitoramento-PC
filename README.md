@@ -1,8 +1,8 @@
-﻿## Projeto-Monitoramento-PC
+﻿#Projeto-Monitoramento-PC
 
-###Funcionalidades 🚀
-##1. Navegação Lateral (Menu)
-    #Agora a interface possui uma barra lateral contendo os 4 módulos do sistema, permitindo transitar entre os diferentes "apps" da plataforma sem sair da página inicial.
+Funcionalidades 🚀
+1. Navegação Lateral (Menu)
+    Agora a interface possui uma barra lateral contendo os 4 módulos do sistema, permitindo transitar entre os diferentes "apps" da plataforma sem sair da página inicial.
 
 2. Monitor em Tempo Real
     Utiliza a biblioteca psutil para consultar dados reais do seu hardware.
@@ -26,4 +26,4 @@
     • Streamlit: Cria a interface inteira em Python de forma simples e rapida.
     • psutil: Captura informacoes internas do hardware com maxima precisao.
     • Pandas & Matplotlib: Manipulam e plotam dados brutos transformando-os em informacoes visuais legiveis.
--->
+#

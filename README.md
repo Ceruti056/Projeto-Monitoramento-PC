@@ -83,7 +83,6 @@ O sistema contribui para a democratização do acesso à informação técnica e
   cmd = 'powershell "Get-EventLog -LogName System -EntryType Error -Newest 10 | Select-Object TimeGenerated, Source, Message | ConvertTo-Json"'
   result = subprocess.run(cmd, capture_output=True, text=True, shell=True)
   ```
-- **Impacto Social na Sociedade:** O superaquecimento é uma das causas mais comuns e silenciosas de falha prematura de hardware, afetando desde estudantes com notebooks até pequenas empresas. Ao oferecer visualização gráfica da temperatura em tempo real com alertas claros, o módulo capacita qualquer pessoa a identificar riscos antes que causem danos físicos irreversíveis ao equipamento. Além disso, o acesso simplificado aos logs de erros do sistema — normalmente escondidos em menus técnicos — permite que usuários leigos detectem e comuniquem problemas com muito mais precisão, acelerando diagnósticos e reduzindo o tempo de inatividade de máquinas em ambientes produtivos.
 
 ### 5. Atualização do Sistema 🔄
 - **Funcionalidade Técnica:** Integra-se diretamente ao **winget** (Gerenciador de Pacotes do Windows), a ferramenta oficial da Microsoft para instalação e atualização de softwares via linha de comando. O módulo disponibiliza dois botões de ação: o primeiro executa `winget upgrade` para listar todos os programas com atualizações pendentes, e o segundo dispara `winget upgrade --all` com as flags `--accept-package-agreements` e `--accept-source-agreements` para realizar a atualização silenciosa e em lote de todos os softwares instalados, sem precisar confirmar cada um manualmente. Toda a saída do terminal é capturada via `subprocess.run(capture_output=True)` e exibida em tempo real numa caixa de texto rolável.
@@ -98,7 +97,6 @@ O sistema contribui para a democratização do acesso à informação técnica e
           except Exception as e:
               st.error(f"Erro ao executar comando: {e}")
   ```
-- **Impacto Social na Sociedade:** Softwares desatualizados são a principal porta de entrada para vírus, ransomwares e ataques cibernéticos que vitimam desde usuários domésticos até pequenas e médias empresas. Ao simplificar o processo de atualização em massa para um único clique, o módulo democratiza a segurança digital, reduzindo drasticamente a exposição a vulnerabilidades conhecidas — especialmente para usuários que não possuem familiaridade com a linha de comando do Windows. Isso contribui diretamente para um ecossistema digital mais seguro e resiliente.
 
 ### 6. Limpeza e Manutenção 🧹
 - **Funcionalidade Técnica:** Agrupa três ferramentas nativas e poderosas do Windows, todas acionadas via `subprocess.run()` com os comandos de sistema adequados. A primeira executa o **SFC** (`sfc /scannow`), que varre todos os arquivos protegidos do sistema em busca de corrupção e os restaura automaticamente a partir de uma cópia armazenada em cache. A segunda aciona o **DISM** (`DISM /Online /Cleanup-Image /RestoreHealth`), que repara a própria imagem do Windows conectando-se ao Windows Update para baixar os componentes corretos e substituir arquivos danificados em um nível mais profundo que o SFC. A terceira função executa `pnputil /scan-devices`, que instrui o gerenciador Plug and Play do Windows a varrer todos os barramentos de hardware reconhecendo dispositivos novos, reiniciando drivers com falha e atualizando as associações de driver sem precisar reiniciar o computador.
@@ -123,8 +121,6 @@ O sistema contribui para a democratização do acesso à informação técnica e
           st.success("Escaneamento de dispositivos concluído.")
           st.text_area("Detalhes:", result.stdout, height=150)
   ```
-- **Impacto Social na Sociedade:** A corrupção silenciosa de arquivos de sistema é um problema que afeta computadores de uso intenso ao longo do tempo, causando lentidão progressiva, travamentos e falhas que muitas vezes levam usuários a acreditarem que precisam reformatar ou substituir o equipamento. Ao colocar ferramentas profissionais de manutenção em uma interface acessível, o módulo estende a vida útil de computadores que, de outra forma, seriam descartados prematuramente, combatendo o desperdício tecnológico e preservando o investimento de famílias, escolas e micro e pequenas empresas que dependem dessas máquinas para suas atividades diárias.
-
 ---
 
 ## Principais Tecnologias Utilizadas no `app.py`
